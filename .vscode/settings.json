@@ -1,0 +1,7 @@
+{
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorStyle": "line",
+    "editor.formatOnSave": true
+}
