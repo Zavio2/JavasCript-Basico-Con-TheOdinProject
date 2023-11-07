@@ -74,3 +74,71 @@ function random1() {
 random1(); // cuando se llama a la función se imprime la variable global que está en el console.log
 
 //!no es una buena práctica usar variables globales, lo mejor es usar lo menos posible
+
+// *RETURN
+
+//  Se usa principalmente para: retornar el resultado de una operación hecha en la función
+// Ej
+
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum(2, 8)); // devuelve la suma 2 + 8
+
+//Ej2:
+
+function divide(a, b) {
+  if (b === 0) {
+    return "Error, división por cero";
+  }
+  return a / b; //aquí el funcionamiento de return es el equivalente a "if else", como: si  no se cumple lo 1ro, entonces ejecuta lo 2do
+}
+
+console.log(divide(20, 0)); // imprime "Error, división por cero"
+console.log(divide(20, 10)); // imprime la división
+
+// * NOMENCLATURA DE FUNCIONES
+
+// ?Usar nombres descriptivos (usualmente verbos) que describan la acción que realiza la función.
+//Ej:
+
+// showMessage(..)     // muestra un mensaje
+// getAge(..)          // devuelve la edad (la obtiene de alguna manera)
+// calcSum(..)         // calcula una suma y devuelve el resultado
+// createForm(..)      // crea un formulario (y usualmente lo devuelve)
+// checkPermission(..) // revisa permisos, y devuelve true/false
+
+// ?No usar una misma función para varias acciones, para cada acción una función diferente con un nombre diferente
+//Ej:
+
+// getAge – está mal que muestre una alert con la edad (solo debe obtenerla).
+// createForm – está mal que modifique el documento agregándole el form (solo debe crearlo y devolverlo).
+// checkPermission – está mal que muestre el mensaje acceso otorgado/denegado(solo debe realizar la verificación y devolver el resultado).
+
+/* Los nombres de funciones deben ser bien descriptivos y concisos, si se torna muy complejaa una función, una buena práctica es dividirla entre 2 (o más) */
+
+//* TAREAS
+
+// Escriba una función min(a,b) la cual devuelva el menor de dos números a y b.
+
+//Ej usando if:
+
+function min(a, b) {
+  if (a < b) {
+    return a;
+  }
+  return b;
+}
+
+console.log(min(2, 3)); // imprime 2
+console.log(min(5, 1)); // imprime 1
+
+//Ej usando operador ternario
+
+function min(a, b) {
+  return a < b ? a : b;
+}
+
+
+

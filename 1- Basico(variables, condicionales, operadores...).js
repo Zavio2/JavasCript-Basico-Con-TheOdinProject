@@ -61,7 +61,7 @@ let finalResult = result * result2; // multiplicar las operaciones anteriores y 
 
 let evenOddResult = finalResult % 2; // Si el resultado es 0 es par
 
-/**********************CONDICIONALES *********************/
+/ **********************CONDICIONALES *********************/;
 
 /* 
 
@@ -221,7 +221,7 @@ if (valor === 0) {
   alert("Eso no es un número");
 }
 
-// Escribe este código usando el operador ternario ?
+// *Rescribir esto con el OPERADOR TERNARIO ?
 
 /*let result;
 
