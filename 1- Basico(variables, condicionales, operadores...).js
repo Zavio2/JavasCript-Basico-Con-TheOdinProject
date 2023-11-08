@@ -61,7 +61,7 @@ let finalResult = result * result2; // multiplicar las operaciones anteriores y 
 
 let evenOddResult = finalResult % 2; // Si el resultado es 0 es par
 
-/ **********************CONDICIONALES *********************/;
+/**********************CONDICIONALES *********************/
 
 /* 
 

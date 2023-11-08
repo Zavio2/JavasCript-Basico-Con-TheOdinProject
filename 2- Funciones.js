@@ -4,9 +4,13 @@ function nombreDeFuntion() {
   alert("código que ejecuta la función");
 }
 
+/* ************************************************************************** */
+
 // *INVOCAR UNA FUNCIÓN
 
 nombreDeFuntion(); // debe ejecutarse el alert que está en la función
+
+/* *************************************************************************** */
 
 // *PARÁMETROS
 
@@ -42,7 +46,9 @@ function holaM(saludo = "mundo") {
 
 holaM(); // imprime "Hola mundo" como predeterminado si no se pone nada en el paréntesis
 
-// * ÁMBITO/SCOPE
+/*********************************************************************/
+
+// *ÁMBITO/SCOPE
 
 // Se refiere a las formas en la que se puede acceder a una variable o función
 
@@ -75,6 +81,8 @@ random1(); // cuando se llama a la función se imprime la variable global que es
 
 //!no es una buena práctica usar variables globales, lo mejor es usar lo menos posible
 
+/* *********************************************************************************** */
+
 // *RETURN
 
 //  Se usa principalmente para: retornar el resultado de una operación hecha en la función
@@ -98,6 +106,8 @@ function divide(a, b) {
 console.log(divide(20, 0)); // imprime "Error, división por cero"
 console.log(divide(20, 10)); // imprime la división
 
+/* ******************************************************************************** */
+
 // * NOMENCLATURA DE FUNCIONES
 
 // ?Usar nombres descriptivos (usualmente verbos) que describan la acción que realiza la función.
@@ -117,6 +127,8 @@ console.log(divide(20, 10)); // imprime la división
 // checkPermission – está mal que muestre el mensaje acceso otorgado/denegado(solo debe realizar la verificación y devolver el resultado).
 
 /* Los nombres de funciones deben ser bien descriptivos y concisos, si se torna muy complejaa una función, una buena práctica es dividirla entre 2 (o más) */
+
+/* **************************************************************************************** */
 
 //* TAREAS
 
@@ -140,5 +152,56 @@ function min(a, b) {
   return a < b ? a : b;
 }
 
+/************************************************************ */
+// * FUNCIONES FLECHA
 
+/************************************************************** */
+// * FUNCIONES ANÓNIMAS
 
+/* ********************************************************* */
+
+// * FUNCIONES CALLBACK
+
+// Se usan para pasar un argumento a otra función; por su naturaleza asincrona, aseguran que no se ejecute una parte del código hasta que se ejecute la función que se pasa como argumento
+
+// EJ:
+
+function saluda(nombre, funcion1) {
+  console.log("Hola " + nombre);
+  funcion1();
+}
+
+function funcion2() {
+  console.log("Adios");
+}
+
+saluda("Juan", funcion2); // Pasa a la funcion2 como argumento en la funcion "saluda"
+/* Se imprime:
+
+   Hola Juan
+   Adios (esta es la funcion1 invocada usando a la funcion2 como argumento)
+
+*/
+
+/************************************************************************** */
+
+// * DECLARACIÓN DE FUNCIÓN V/S EXPRESIÓN DE FUNCIÓN
+
+// Declaración:
+
+// de esta forma por el "hoisting" en javascript (significa que "se elevan" al inico del ambito en el que están), se puede acceder a esta función desde cualquier parte del código e incluso se puede invocar antes de escribir la función
+// EJ:
+
+funcionDecl(); // se imprime lo que hay en console log
+
+function funcionDecl() {
+  console.log("Función declarada random");
+}
+
+// Expresión:
+// Son funciones que están dentro de otra construcción sintáctica
+// Ej:
+
+let sum  = function (a, b){
+  return a + b
+}
