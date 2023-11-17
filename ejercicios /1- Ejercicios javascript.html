@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Escribe una función llamada add7 que toma un número y devuelve ese número + 7.
+
+      function add7(a) {
+        return a + 7;
+      }
+      console.log(add7(3)); // imprime 10, porque le suma 7 a 3
+
+      // Escribe una función llamada multiply que toma 2 números y devuelve su producto.
+
+      function multiply(a, b) {
+        return a * b;
+      }
+      console.log(multiply(5, 3)); // imprime la multiplicación de 5 * 3
+
+      // Escriba una función llamada capitalize que tome una cadena y devuelva esa cadena con solo la primera letra en mayúscula. Asegúrese de que puede tomar cadenas que estén en minúsculas, MAYÚSCULAS o BoTh.
+
+      function capitalize(str) {
+        let firstLetter = str.charAt(0); // el método "charAt(0)" toma el 1er carácter de un string
+        let restOfStrig = str.slice(1); // el método "slice()" toma todos los carácteres menos el 1ro. Depende del valor que se le asigne, si es slice(2) toma todos los valores menos los 2 primeros
+
+        firstLetter = firstLetter.toUpperCase(); // devuelve el string en mayúscula
+        restOfStrig = restOfStrig.toLowerCase(); // devuelve el string en minúscula
+
+        return firstLetter + restOfStrig;
+      }
+
+      console.log(capitalize("hola")); // imprime Hola
+      console.log(capitalize("HoLa")); // imprime Hola      
+      console.log(capitalize("AAAA")); // imprime Aaaa      
+      
+
+      
+
+
+
+    </script>
+  </body>
+</html>

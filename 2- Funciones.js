@@ -155,8 +155,22 @@ function min(a, b) {
 /************************************************************ */
 // * FUNCIONES FLECHA
 
+// Son una forma más compacta y simple de escribir una función
+// EJ:
+
+let sum = (a, b) => a + b;
+
+// es el equivalente a:
+
+let sum = function (a, b) {
+  return a + b;
+};
+
 /************************************************************** */
 // * FUNCIONES ANÓNIMAS
+
+// Son funciones sin nombre, normalmente se usan para pasar una función como argumento de otra función o para alojarse dentro de una variable
+
 
 /* ********************************************************* */
 
@@ -199,9 +213,12 @@ function funcionDecl() {
 }
 
 // Expresión:
-// Son funciones que están dentro de otra construcción sintáctica
+// Son funciones anónimas que están dentro de otra construcción sintáctica (dentro de una variable o dentro de otra función)
 // Ej:
 
-let sum  = function (a, b){
-  return a + b
-}
+let sum = function (a, b) {
+  return a + b;
+};
+
+// Con estas no se aplica lo del hoisting, se puede usar solo desde que se crea
+//Pero a diferencia de las funciones declaradas, sí se puede acceder al código desde fuera del ambito de la función invocando a la variable que la tiene almacenada
