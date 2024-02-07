@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Hay 3 formas de hacerlo -->
+
+    <!-- 1- Poniendo un atributo directamente en el documento html (este método no es el ideal, porque es saturar el html de JavaScript, y solo se puede agregar un onclick por elemento) -->
+
+    <button onclick="alert('Hello World')">Click Me</button>
+
+    <!-- 2-  -->
+
+    <button id="btn">Click me</button>
+
+    <script>
+      const btn = document.querySelector("#btn");
+      btn.onclick = () => console.log("Hello world"); // arrow function que indica lo que pasa al hacer click
+    </script>
+
+    <!--* 3 (ESTA ES LA FORMA MÁS RECOMENDABLE) -->
+
+    <button id="but">click me</button>
+
+    <script>
+      const but = document.querySelector("#but");
+      but.addEventListener("click", () => {
+        alert("Hello world");
+      });
+
+      //   También se puede hacer con una callback function
+
+      /*   const display = () => alert("HEY"); //arrow function que luego es pasada como argumento en el addEventListener
+
+      const but = document.querySelector("#but");
+      but.addEventListener("click", display); */
+
+      but.addEventListener("click", function (e) {
+        // "a" apunta al mismo event, pero cuando se agrega "target" está apuntando al nodo en cuestión
+        e.target.style.background = "blue"; // el nodo se pone azul cuando ocurre el evento
+        e.target.style.padding = "20px";
+      });
+    </script>
+
+    <br /><br /><br /><br /><br />
+
+    <div id="container">
+      <button id="btn1">Color blue</button>
+      <button id="btn2">Color red</button>
+      <button id="btn3">Revert all</button>
+    </div>
+
+    <script>
+      const miDiv = document.querySelector("#container");
+      const boton1 = document.querySelector("#btn1");
+      const boton2 = document.querySelector("#btn2");
+      const boton3 = document.querySelector("#btn3");
+      const botones = document.querySelectorAll("button");
+
+      boton1.addEventListener("click", function () {
+        //pone el div azul
+        miDiv.style.backgroundColor = "blue";
+        miDiv.style.padding = "20px";
+        miDiv.style.border = "solid 2px";
+      });
+
+      boton2.addEventListener("click", function () {
+        //pone el div rojo
+        miDiv.style.backgroundColor = "red";
+        miDiv.style.padding = "20px";
+        miDiv.style.border = "solid 2px";
+      });
+
+      boton3.addEventListener("click", function () {
+        //revierte lo anterior
+        miDiv.style.backgroundColor = "";
+        miDiv.style.padding = "";
+        miDiv.style.border = "";
+      });
+    </script>
+    <br /><br /><br /><br /><br />
+
+    <!-- Adjuntar eventos en grupos de nodos -->
+
+    <div id="unDiv">
+      <button class="1" id="btn">boton1</button>
+      <button class="2" id="btn">boton2</button>
+      <button class="3" id="btn">boton3</button>
+      <button class="4" id="btn">boton4</button>
+    </div>
+
+    <script>
+      const contenedor = document.querySelector("#unDiv");
+      const bts = document.querySelectorAll("#btn");
+
+      bts.forEach((botones) => {
+        botones.addEventListener("click", () => {
+          alert(botones.classList)
+        });
+      });
+    </script>
+  </body>
+</html>

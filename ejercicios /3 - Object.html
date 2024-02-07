@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Introduce una propiedad y su valor. Si el nombre de la propiedad ya
+      existe, solo actualiza su valor anterior, si no, agrega una nueva
+      propiedad:
+    </p>
+    <br />
+    <input type="text" class="propiedadInput" placeholder="Propiedad" />
+    <input type="number" class="valorInput" placeholder="Valor" />
+    <button class="agregar">Agregar</button>
+    <button class="borrar">Borrar</button>
+
+    <script>
+      const propiedadInput = document.querySelector(".propiedadInput");
+      const valorInput = document.querySelector(".valorInput");
+      const buttonAdd = document.querySelector(".agregar");
+      const buttonDelete = document.querySelector(".borrar");
+
+      const persona = {
+        name: ["Raul", "Armando"],
+        age: 20,
+        saludo() {
+          console.log(
+            `Hola, me llamo ${this.name[0]} y tengo ${this.age} años`
+          );
+        },
+      };
+
+      function addPropiedad() {
+        let propiedad = propiedadInput.value;
+        let valor = parseInt(valorInput.value);
+
+        persona[propiedad] = valor;
+        console.log(persona);
+        persona.saludo();
+      }
+
+      buttonAdd.addEventListener("click", addPropiedad);
+    </script>
+  </body>
+</html>
