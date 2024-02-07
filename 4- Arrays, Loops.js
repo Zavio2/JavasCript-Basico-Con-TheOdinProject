@@ -62,7 +62,11 @@ for (let i = 0; i < Numeros.length; i++) {
   console.log(newVariable); //imprime cada elemento del array
 }
 
-// Usando el método reduce:
+//*********************** MÉTODOS DE ARRAYS ****************************************
+
+//! Mejorar estos apuntes explicando bien cada método con varios ejemplos, agregar los demás métodos de javascript.info
+
+// *Usando el método reduce:
 // Se usa para reducir todos los elemtos de un array a uno solo
 
 const num = [1, 2, 3, 4, 5];
@@ -74,14 +78,14 @@ let resultado = num.reduce(
 
 //El 0 es el valor inicial con el que empieza "acumulador", y "valorActual" es igual a cada valor del array que va recorriendo
 
-// Usando map:
+// *Usando map:
 // Se usa para aplicar una función a cada elemto del array y crear uno nuevo con el resultado
 
 const num2 = [1, 2, 3, 4, 5];
 
 let resultDoble = num2.map((valor) => valor * 2); //  returna la multipicación por 2 de cada elemento del array en un nuevo array
 
-// Usando filter:
+// *Usando filter:
 // Este método crea un nuevo array con los elementos que cumplan las condiciones que se dan
 
 const num3 = [12, 15, 20, 23, 40];
