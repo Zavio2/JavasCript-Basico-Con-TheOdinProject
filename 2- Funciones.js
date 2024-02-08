@@ -158,9 +158,15 @@ function min(a, b) {
 // Son una forma más compacta y simple de escribir una función
 // EJ:
 
+let suma = (a, b) => {
+  return a + b
+}
+
+// es lo mismo que: 
+
 let sum = (a, b) => a + b;
 
-// es el equivalente a:
+// que ambos son el equivalente a:
 
 let sum = function (a, b) {
   return a + b;
