@@ -64,7 +64,6 @@ for (let i = 0; i < Numeros.length; i++) {
 
 //*********************** MÉTODOS DE ARRAYS ****************************************
 
-//! Mejorar estos apuntes explicando bien cada método con varios ejemplos, agregar los demás métodos de javascript.info
 
 // *Usando el método reduce:
 // Se usa para reducir todos los elemtos de un array a uno solo
