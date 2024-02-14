@@ -160,9 +160,9 @@ const compareFn = (a, b) => {
   }
 };
 
-const numerosOrdenados = [...numeros]; //copio el array a otro con el método spread para no modificar el array original
+const numerosOrdenados = [...numeros].sort(compareFn); 
+//1- Copio el array a otro con el método spread para no modificar el array original, porque a diferencia de los demás, sort sí modifica el array
+ //2- Aplico el método sort a el nuevo array
 
-numerosOrdenados.sort(compareFn) //aplico el método sort a el nuevo array
-
-console.log(numeros);
+console.log(numeros); // imprime el array original
 console.log(numerosOrdenados); // imprime el array con los números ordenados

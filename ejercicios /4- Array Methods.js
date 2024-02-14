@@ -82,7 +82,7 @@ const inventorsBornIn1500 = inventors.filter(filtraInventorBornIn1500);
 console.log(inventorsBornIn1500);
 
 // Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
+// *2. Give us an array of the inventors first and last names
 
 const returnFullName = (inventor) => {
   return `First: ${inventor.first}; Last: ${inventor.last}`;
@@ -91,7 +91,7 @@ const fullName = inventors.map(returnFullName);
 console.table(fullName);
 
 // Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
+//* 3. Sort the inventors by birthdate, oldest to youngest
 
 const compareFn = (a, b) => {
   if (a.year < b.year) {
@@ -109,7 +109,9 @@ console.table(inventors);
 console.table(sorted);
 
 // Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
+// *4. How many years did all the inventors live all together?
+
+
 
 // 5. Sort the inventors by years lived
 
