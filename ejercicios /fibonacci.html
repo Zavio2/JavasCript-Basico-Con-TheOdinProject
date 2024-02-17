@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonacci</title>
+    <style></style>
+  </head>
+  <body>
+    <input type="text" placeholder="Ponga un número" /> <button>Enviar</button>
+    <p class="lugarEnLaSucesion"></p>
+    <p class="sucesion"></p>
+    <script>
+      const userNumber = document.querySelector("input");
+      const button = document.querySelector("button");
+      
+      const lugar = document.querySelector(".lugarEnLaSucesion");
+      const secuencia = document.querySelector(".sucesion");
+
+      const fibonacci = function (number) {
+        number = userNumber.value
+        let n1 = 0;
+        let n2 = 1;
+        let nextTerm;
+        const fib = [];
+
+        if (number < 0 || isNaN(number)) return "invalid";
+        if (number === 0) return 0;
+
+        for (let i = 1; i <= number; i++) {
+          fib.push(n1); //pone el 1er numero en el array
+          nextTerm = n1 + n2; //el siguiente numero es la suma de los 2 anteriores
+          n1 = n2; // ahora para la próxima vuelta el 1er valor es el que antes era el 2do
+          n2 = nextTerm; // y el 2do es el siguiente término (que es la suma de los 2 anteriores)
+        }
+        console.log(
+          `Los ${number} primeros números de la secuencia fibonacci son: ${fib}`
+        );
+        console.log(
+          `El lugar ${number} de la secuencia fibonacci es: ${fib[fib.length - 1]}`
+        );
+
+        lugar.textContent = `El lugar ${number} de la secuencia es: ${
+          fib[fib.length - 1]
+        }`;
+        secuencia.textContent = `Los ${number} primeros números de la secuencia fibonacci son: ${fib}`;
+      };
+
+      // fibonacci(userNumber.value);
+
+      button.addEventListener("click", fibonacci)
+    </script>
+  </body>
+</html>
