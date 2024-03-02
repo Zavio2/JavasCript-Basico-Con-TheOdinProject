@@ -101,7 +101,7 @@ const randomArr = ["a", "b", "c", "d", "e"];
 randomArr.splice(1, 1, "BB"); // si no pongo nada después del cantidad de elementos, solo elimina sin sustitución
 console.log(randomArr);
 
-// No hay que crear otra variable para ejcutar el método, si guardo el resultado en una variable estaría teniendo los elementos eliminados
+// returna los elementos eliminados y modifica el array original, si guardo el resultado en una variable, tendré los elementos eliminados el array
 const Num = [1, 2, 3, 4, 5];
 const Result = Num.splice(1, 2);
 console.log(Result); // 2, 3 (2 números eliminados a partir del indice dado, incluyéndolo)

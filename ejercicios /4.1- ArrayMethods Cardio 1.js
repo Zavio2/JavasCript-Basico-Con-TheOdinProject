@@ -111,15 +111,63 @@ console.table(sorted);
 // Array.prototype.reduce()
 // *4. How many years did all the inventors live all together?
 
+//*Se puede crear un array con la edad de cada uno usando map, para luego calcular el total con reduce
+//ej:
+/* const obtieneLaEdad = (inventor) => {
+  let edad = inventor.passed - inventor.year;
+  console.log(`${inventor.first}: ${edad}`);
+  return edad;
+};
+const edad = inventors.map(obtieneLaEdad); */
 
+//* Pero hay una forma más rápida de hacer todo solo con reduce:
+
+const calculaEdadTotal = (total, inventor) =>
+  total + (inventor.passed - inventor.year);
+
+const totalYears = inventors.reduce(calculaEdadTotal, 0);
+console.log("Edad total: " + totalYears); //imprime la edad total de todos los inventores
 
 // 5. Sort the inventors by years lived
+
+const orderedByYears = [...inventors].sort(function (a, b) {
+  let inventorA = a.passed - a.year;
+  let inventorB = b.passed - b.year;
+
+  if (inventorA > inventorB) {
+    return -1;
+  } else if (inventorA < inventorB) {
+    return 1;
+  }
+});
+console.table(orderedByYears);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+//* todo esto en la DevTools manipulando el DOM de esa página
+/* 
+const category = document.querySelector(".mw-category");
+const links = Array.from(category.querySelectorAll("a")); //el arrayfrom convierte la lista de nodos en un array, para poder aplicarle métodos de arrays
+
+const de = links
+  .map((link) => link.textContent) //mete en un nuevo array el texto de los links
+  .filter((streetName) => streetName.includes("de")); //filtra los que incluyan "de"
+ */
+
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+const compareF = (lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(", "); //dividir el string en dos (lastName y firstName) y guardar cada uno en una variable
+  const [bLast, bFirst] = nextOne.split(", "); //lo mismo en el segundo parámetro para luego compararlos
+
+  return aLast > bLast ? 1 : -1; //y ahora ya se pueden comparar y organizar los lastName por orden alfabético
+};
+
+const alphab = people.sort(compareF); //se aplica el método sort con la función: "compareF"
+
+console.log(alphab);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
@@ -139,3 +187,13 @@ const data = [
   "car",
   "truck",
 ];
+
+const sumIntances = (obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0
+  }
+  obj[item]++
+  return obj
+}
+const suma = data.reduce(sumIntances, {})
+console.log(suma);

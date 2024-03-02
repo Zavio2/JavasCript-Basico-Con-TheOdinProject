@@ -1,7 +1,6 @@
-/**************************MÉTODOS QUE NO MODIFICAN EL ARRAY ORIGINAL ***************************** */
-
 // *MAP
-// Itera por cada elemento de un array con una función dada, y crea un nuevo array con el resultado
+// Itera por un array y aplica una función dada a cada elemento para luego devolver un array con el resultado
+//Puede recibir 3 arguementos (currentValue, index, array) y el thisArgument. Normalmente solo se usa el primero, pero los demás pueden ser útiles en algunos casos
 //Ej:
 
 const number = [1, 2, 3, 4];
@@ -44,6 +43,7 @@ console.log(id); // imprime el id de cada producto
 //* FILTER
 
 //se crea una función con unas condiciones para un array, y a partir de esta función, todos los elementos del array que "pasen el filtro" pasan para un nuevo array
+//Puede recibir 3 argumentos: (currentValue, indexDelCurrentValue, array), los últimos dos son opcionales pero pueden ser útiles en algunos casos
 //ej:
 
 const numer = [12, 13, 20, 35, 40, 50];
@@ -87,6 +87,8 @@ console.log(numb2);
 
 //* REDUCE
 // Aplica una función a cada elemento del array para reducirlo a un solo valor
+//Puede recibir 4 argumentos (acumulador, curerrentValue, currentIndex, array) y el valor incial del acumulador
+//Si no se pone el valor inicial del acumulador, coge el 1er elemento del array y empieza a iterar a partir del segundo
 
 const numeross = [10, 20, 30, 10];
 
@@ -142,8 +144,6 @@ const mayoresDe40 = numm.reduce(filtraLosMayoresDe40, []);
 
 console.log(mayoresDe40);
 
-//* AHORA LOS 3 MÉTODOS JUNTOS
-
 //* SORT
 
 //Si se pone sol sort() sin poner niguna función de comparación, se organiza el array según la reglas unicode, pero cuando pones una función de comparación tú decides como se organiza todo
@@ -160,9 +160,107 @@ const compareFn = (a, b) => {
   }
 };
 
-const numerosOrdenados = [...numeros].sort(compareFn); 
+const numerosOrdenados = [...numeros].sort(compareFn);
 //1- Copio el array a otro con el método spread para no modificar el array original, porque a diferencia de los demás, sort sí modifica el array
- //2- Aplico el método sort a el nuevo array
+//2- Aplico el método sort a el nuevo array
 
 console.log(numeros); // imprime el array original
 console.log(numerosOrdenados); // imprime el array con los números ordenados
+
+//* Una forma más fácil de hacerlo es usando "return a - b" para ordenar de forma ascendente y b - a para ordenar de forma descendente
+
+/***********        Métodos para trabajar con strings       **************/
+
+//*SPLIT
+// Se usa para manipular strings y devolverlos en un array
+//Se puede usar con dos argumentos, el primero es el separador, y el segundo (opcional) para definir cuantos elementos returnará
+//Cuando se encuentra el separador, se elimina
+
+const str = "El perro, el gato, el hombre, el caballo y el ratón";
+
+const separadas = str.split(" "); //con esto divide el string cada vez que detecte un espacio
+
+console.log(separadas);
+
+const separadas2 = str.split(",", 3);
+//divide el string cada vez que encuentre una coma
+//con el 2do argumento (3) estoy diciendo que solo devuelva los 3 primeros valores
+
+console.log(separadas2); // print: [ 'El perro', ' el gato', ' el hombre' ]
+
+const separadas3 = str.split(""); //si es un string vacío separa el array en cada caracter, incluyendo comas y espacios
+// si no hay nada en el separador, pasa el string completo sin modificar
+
+console.log(separadas3);
+
+//Se puede usar con expresiones regulares para encontrar números, carácteres alfanuméricos, cuantificadores para encontrar si algún caracter se repite, etc
+
+//* JOIN
+//Se usa para unir todos los elementos de un array y devolver una cadena de texto (string)
+//el argumento que se le pasa es el separador para los elementos, si no se le pasa nada, los une por defecto con una coma sin espacios
+//Si se le pasa una cadena vacía los une sin nanda separando cada elemento
+
+const elements = ["Fire", "Air", "Water"];
+
+console.log(elements.join());
+// Expected output: "Fire,Air,Water"
+
+console.log(elements.join(""));
+// Expected output: "FireAirWater"
+
+console.log(elements.join("-"));
+// Expected output: "Fire-Air-Water"
+
+//*REVERSE
+//invierte el orden de los valores del array
+
+//Con estos métodos, con "replace" y con .toLowerCase (que son métodos para strings) es suficiente para hacer una función que detecte si un string es palíndromo
+
+//* INCLUDES
+
+//Determina si un array tiene o no un elemento y devuelve true o false
+//Puede recibir 2 arguementos, el elemento a buscar y fromIndex, que a partir de que índice debe empezar a buscar (opcional, pero puee ser útil en algunos casos)
+
+const array1 = [1, 2, 4, 5];
+console.log(array1.includes(5)); //true
+
+console.log(array1.includes(2, 2)); //false, porque el fromIndex es 2 y empieza a buscar a partir de ese index
+
+//*INDEXOF
+//Devuelve el índice de la 1ra vez que se encontró un elemento en un array
+//Puede recibir 2 argumentos, el valor del cual se quiere saber el índice de la 1ra aparición y el fromIndex (opcional) para empezar a buscar desde un ínide dado
+
+const arr2 = [0, 1, 2, 3, 2];
+
+console.log(arr2.indexOf(2)); // 2
+
+const ab = arr2.filter((current, index, array) => {
+  return array.indexOf(current) === index
+});
+
+console.log(ab); // Filtra los valores repetidos
+
+//*SLICE
+//Hace una copia del array
+//Sintaxis slice(indexStart, indexEnd)
+//Incluye el índice desde el que empieza, pero no el end
+
+const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+console.log(animals.slice(2));
+// Expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// Expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// Expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.slice());
+// Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
